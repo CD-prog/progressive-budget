@@ -5,6 +5,8 @@
 ## Description
 Budget application that allows users to add offline transactions and syncs them once the app is back online
 
+<img src="public/progressive-budget.png">
+
 
 
 ## Table of Contents
