@@ -56,6 +56,25 @@ function checkDatabase() {
     }
 }
 
+function addOfflineTransactions() {
+
+    var transaction = db.transaction(['pending'], 'readwrite');
+    var store = transaction.objectStore('pending');
+    const allTransactions = store.getAll();               
+  
+    allTransactions.onsuccess = function() {
+      if (allTransactions.result.length > 0) {
+          allTransactions.result.forEach(temp=>{
+              transactions.unshift(temp);
+          })
+      }
+      populateTotal();
+      populateTable(); 
+      populateChart(); 
+  
+    };
+  }
+
 window.addEventListener('online', checkDatabase);
 
 
